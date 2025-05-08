@@ -1,6 +1,6 @@
 {
   "name": "youtube-captions-scraper",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Scrape YouTube auto-generated captions",
   "main": "dist/index.js",
   "author": {
@@ -22,11 +22,10 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf dist && babel src -d dist",
-    "prepublishOnly": "npm run build"
+    "demo": "npm run ./demos/dist-demo.js"
   },
   "dependencies": {
-    "axios": "^1.9.0",
-    "he": "^1.2.0"
+    "axios": "^1.9.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

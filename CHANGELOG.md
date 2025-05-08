@@ -1,3 +1,12 @@
+# v2.2.2
+
+* replaced he with custom HTML excaped decoder for smaller package size
+* moved test demos into their own folder
+
+# v2.2.1
+
+* removed eslint
+
 # v2.2.0
 
 * added upstream change; allow JS `fetch` to be used if avalable

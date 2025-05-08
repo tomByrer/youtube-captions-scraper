@@ -1,5 +1,4 @@
-import he from 'he';
-import axios from 'axios';
+import axios from 'axios'
 
 const fetchData = typeof fetch === 'function'
   ? async function fetchData(url) {
@@ -12,6 +11,22 @@ const fetchData = typeof fetch === 'function'
     const { data } = await axios.get(url);
     return data;
   }
+const unescapeHTMLentities = (str) => {
+  const reEscape = /&(?:apos|#39|quot|#34|lt|#60|gt|#62|amp|#38);/g
+  return str.replace(reEscape, (tag)=>({
+    '&apos;':"'",
+    '&#39;':"'",
+    '&quot;':'"',
+    '&#34;':'"',
+    '&lt;':'<',
+    '&#60;':'<',
+    '&gt;':'>',
+    '&#62;':'>',
+    '&amp;':'&',
+    '&#38;':'&',
+  })[tag]
+  )   
+}
 
 export async function getSubtitles({
   videoID = '9W0Dy1nM-zU',
@@ -44,7 +59,7 @@ export async function getSubtitles({
     .replace('<?xml version="1.0" encoding="utf-8" ?><transcript>', '')
     .replace(/&lt;font color=&quot;#......&quot;&gt;/gi, '')
     .replace(/&lt;\/font&gt;/gi, '')
-    .replace(/&amp;/gi, '&')
+    // .replace(/&amp;/gi, '&') done
     .replace('</transcript>', '')
     .split('</text>')
     .filter(line => line && line.trim())
@@ -55,7 +70,7 @@ export async function getSubtitles({
       const [, dur] = durRegex.exec(line)
       cue.d = parseFloat(dur)
       const htmlText = line.replace(/<text.+>/, '')
-      cue.t = he.decode(htmlText)
+      cue.t = unescapeHTMLentities(htmlText)
       timedtext[i] = cue
     })
 

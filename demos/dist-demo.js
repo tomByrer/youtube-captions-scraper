@@ -1,5 +1,5 @@
 // build first with `yearn build` or `npx build`, then run with `node dist-demo`
-const getSubtitles = require('./dist/index').getSubtitles;
+const getSubtitles = require('../dist/index.js').getSubtitles;
 
 getSubtitles({
     videoID: '9W0Dy1nM-zU',

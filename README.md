@@ -61,3 +61,12 @@ node cli VIDEO-ID
 ```
 Outputs in home dir as `VIDEO-ID.captions.json`.  
 The `.gitignore` prevents you from saving the output in your git repo.
+
+### Demo
+
+```bash
+npm run demo
+or
+bun run demo
+```
+Output should be JSON, with some 'text lines' (`t`) including a some minor HTML markup, but no `<font>` tags.
