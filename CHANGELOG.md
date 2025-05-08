@@ -1,3 +1,13 @@
+# v2.2.0
+
+* added upstream change; allow JS `fetch` to be used if avalable
+* removed flow & prettier, updated other deps
+* removed ava test; `dist-demo.js` has a default test
+
+# v2.1.0
+
+* fixed YouTube API URL
+
 # v2.0.0
 
 * BREAKING CHANGE: output includes videoID, language code, & datetime stamp of when script was ran
@@ -5,7 +15,6 @@
 * added CLI script: `node cli VIDEO-ID` to run, outputs in home dir as `VIDEO-ID.captions.json`.
 * dropped lodash
 * updated axios
-
 
 # v1.1.0
 

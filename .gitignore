@@ -7,3 +7,6 @@ dist
 
 # CLI output
 *.captions.json
+
+bun.lock
+pnpm-lock.yaml
